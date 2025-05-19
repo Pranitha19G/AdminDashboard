@@ -1,0 +1,30 @@
+.Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(0, 50%);
+}
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 350px;
+  background-color: rgb(244, 219, 173, 0.6);
+}
+.loginContainer input {
+  height: 30px;
+  border-radius: 4px;
+  border: 1px solid;
+  width: 80%;
+}
+.loginContainer button {
+  margin-top: 40px;
+  height: 30px;
+  width: 80%;
+  border-radius: 4px;
+  background-color: rgb(65, 65, 202);
+  border: none;
+}

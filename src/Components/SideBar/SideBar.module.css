@@ -1,0 +1,31 @@
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  background-color: #FE5D26;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: white;
+}
+.adminlogo{
+    font-size: 30px;
+    text-align: center;
+}
+.categories ul{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;  
+}
+.links{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #000000;
+}
+
+.activelink{
+    color: #EFEEEA;
+}
