@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Login.module.css";
+import AuthContext from "../AuthContext/AuthContext";
 
 export default function Login() {
+  const{inputprovider,setInputprovider}=useContext(AuthContext);
+
   const [input, setInput] = useState({
     email: "",
     password: "",
   });
-  const [submit, setSubmit] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,8 +20,7 @@ export default function Login() {
     console.log("d", input);
   };
   const Loginfun = () => {
-    setSubmit((prev) => [...prev, input]);
-    console.log("s", submit);
+    setInputprovider(input)
   };
   return (
     <div className={styles.Login}>

@@ -6,30 +6,33 @@ import User from "./Components/Users/User";
 import Products from "./Components/Products/Products";
 import Login from "./Components/Login/Login";
 import ProtectedRoutes from "./Components/ProtectedRoute/ProtectedRoutes";
+import AuthContextprovider from "./Components/AuthContext/AuthContextprovider";
 
 function App() {
   return (
     <>
+    <AuthContextprovider>
       <BrowserRouter>
-        <div className="sidebardiv">
-          <SideBar />
-          <div className="maindiv">
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <ProtectedRoutes>
-                    <Home />
-                  </ProtectedRoutes>
-                }
-              />
-              <Route path="/user" element={<User />} />
-              {/* <Route path="/products" element={<Products />} /> */}
-              <Route path="/login" element={<Login />} />
-            </Routes>
-          </div>
-        </div>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+
+          <Route
+            element={
+              <div className="sidebardiv">
+                <SideBar />
+                <div className="maindiv">
+                  <ProtectedRoutes />
+                </div>
+              </div>
+            }
+          >
+            <Route path="/" element={<Home />} />
+            <Route path="/user" element={<User />} />
+            <Route path="/products" element={<Products />} />
+          </Route>
+        </Routes>
       </BrowserRouter>
+      </AuthContextprovider>
     </>
   );
 }
