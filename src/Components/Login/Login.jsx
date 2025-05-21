@@ -1,9 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./Login.module.css";
 import AuthContext from "../AuthContext/AuthContext";
+import { useNavigate } from "react-router-dom";
+import UserList from "../../Utils/UserList";
 
 export default function Login() {
-  const{inputprovider,setInputprovider}=useContext(AuthContext);
+  const { inputprovider, setInputprovider, message } = useContext(AuthContext);
+  const [message1, setMessage1] = useState("failure");
+  const [role, setRole]=useState("")
 
   const [input, setInput] = useState({
     email: "",
@@ -20,8 +24,28 @@ export default function Login() {
     console.log("d", input);
   };
   const Loginfun = () => {
-    setInputprovider(input)
+    const user = UserList.find(
+      (val) => val.email === input.email && val.password === input.password
+    );
+    setRole(user.role)
+    localStorage.setItem("role", JSON.stringify(user.role))
+    setMessage1(user ? "success" : "failure");
   };
+  useEffect(()=>{
+         console.log("user",role);
+  },[role])
+
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem("logindetails", JSON.stringify(message1));
+
+    if (message1 === "success") {
+      navigate("/");
+    }
+  }, [message1]);
+
   return (
     <div className={styles.Login}>
       <div className={styles.loginContainer}>

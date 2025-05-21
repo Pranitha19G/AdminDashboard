@@ -1,5 +1,6 @@
 const UserList = [
   { email: "admin1@example.com", password: "AdminPass1", role: "admin" },
+  { email: "1", password: "1", role: "admin" },
   { email: "admin2@example.com", password: "AdminPass2", role: "admin" },
   { email: "admin3@example.com", password: "AdminPass3", role: "admin" },
   { email: "admin4@example.com", password: "AdminPass4", role: "admin" },
